@@ -8,7 +8,7 @@
 import Foundation
 
 class LoginPresenter: LoginPresenterProtocol {
-    
+
     public weak var view:  LoginViewControllerProtocol?
     public var interactor:  LoginInteractorProtocol?
     public var router:  LoginRouterProtocol?

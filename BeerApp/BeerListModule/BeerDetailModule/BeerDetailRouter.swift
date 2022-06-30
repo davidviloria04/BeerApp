@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 final class BeerDetailRouter {
-    class func createModule(title: String?, image: String?) -> UIViewController {
+    class func createModule(title: String?, image: String?, indexPath: IndexPath) -> UIViewController {
         let view = mainStoryboard.instantiateViewController(withIdentifier: "detail") as? BeerDetailViewController
         let presenter = BeerDetailPresenter()
         let interactor = BeerDetailInteractor()
@@ -23,6 +23,7 @@ final class BeerDetailRouter {
         
         view?.titleDescription = title
         view?.imageDescription = image
+        view?.index = indexPath
         
         return view!
     }

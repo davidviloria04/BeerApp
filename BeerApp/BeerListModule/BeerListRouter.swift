@@ -30,15 +30,13 @@ final class BeerListRouter {
 }
 
 extension BeerListRouter: BeerListRouterProtocol{
-    func goToDetailView(view: BeerListViewControllerProtocol, title: String?, nameImage: String?) {
-        let newListView = BeerDetailRouter.createModule(title: title, image: nameImage)
+    func goToDetailView(view: BeerListViewControllerProtocol, title: String?, nameImage: String?, indexPath: IndexPath) {
+        let newListView = BeerDetailRouter.createModule(title: title, image: nameImage, indexPath: indexPath)
         if let newView = view as? UIViewController{
             DispatchQueue.main.async {
                 newView.navigationController?.pushViewController(newListView, animated: true)
             }
         }
-        
-        
     }
     
 }

@@ -21,7 +21,14 @@ class BeerListViewController: UIViewController{
         tableView.dataSource = self
         presenter?.viewDidLoad()
         configureTableView()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeLogin(_:)))
+
     }
+    
+    @objc func closeLogin(_ sender: UIButton!){
+        
+    }
+    
     
     func configureTableView(){
         let nibName = UINib(nibName: "\(BeerListCell.self)", bundle: nil)
@@ -54,7 +61,7 @@ extension BeerListViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter?.goToDetailView(title: listAtributes[indexPath.row].beerName, nameImage: listAtributes[indexPath.row].beerPic)
+        presenter?.goToDetailView(title: listAtributes[indexPath.row].beerName, nameImage: listAtributes[indexPath.row].beerPic, indexPath: indexPath)
     }
     
     

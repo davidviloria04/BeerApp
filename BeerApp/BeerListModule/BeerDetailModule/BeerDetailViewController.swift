@@ -17,6 +17,7 @@ class BeerDetailViewController: UIViewController {
     
     var titleDescription: String?
     var imageDescription: String?
+    var index: IndexPath?
     
     @IBOutlet weak var beerImg: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
@@ -44,11 +45,11 @@ extension BeerDetailViewController: BeerDetailViewControllerProtocol{
     func getDatos(data: [BeerDetailEntity]) {
         self.listAtributes = data
         
-        descriptionLbl.text = listAtributes[0].description
-        tagsLbl.text = listAtributes[0].tags
-        phLbl.text = listAtributes[0].ph
-        attenuationLbl.text = listAtributes[0].attenuationLevel
-        firstBrewedLbl.text = listAtributes[0].firstBrewed
+        descriptionLbl.text = listAtributes[index?.row ?? 0].description
+        tagsLbl.text = listAtributes[index?.row ?? 0].tags
+        phLbl.text = listAtributes[index?.row ?? 0].ph
+        attenuationLbl.text = listAtributes[index?.row ?? 0].attenuationLevel
+        firstBrewedLbl.text = listAtributes[index?.row ?? 0].firstBrewed
     }
     
     

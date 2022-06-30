@@ -10,11 +10,11 @@ import UIKit
 
 // MARK: Router -
 protocol BeerListRouterProtocol: AnyObject {
-    func goToDetailView(view: BeerListViewControllerProtocol, title: String?, nameImage: String?)
+    func goToDetailView(view: BeerListViewControllerProtocol, title: String?, nameImage: String?, indexPath: IndexPath)
 }
 // MARK: Presenter -
 protocol BeerListPresenterProtocol: AnyObject {
-    func goToDetailView(title: String?, nameImage: String?)
+    func goToDetailView(title: String?, nameImage: String?, indexPath: IndexPath)
     func viewDidLoad()
 }
 

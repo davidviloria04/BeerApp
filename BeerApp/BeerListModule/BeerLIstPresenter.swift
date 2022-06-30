@@ -22,8 +22,8 @@ extension BeerListPresenter: BeerListPresenterProtocol{
         view?.getDatos(data: beerList ?? [])
     }
     
-    func goToDetailView(title: String?, nameImage: String?) {
-        router?.goToDetailView(view: view!, title: title, nameImage: nameImage)
+    func goToDetailView(title: String?, nameImage: String?, indexPath: IndexPath) {
+        router?.goToDetailView(view: view!, title: title, nameImage: nameImage, indexPath: indexPath)
     }
     
     

@@ -28,13 +28,23 @@ final class LoginRouter {
         }
         return UIViewController()
     }
-
+    
     static var mainStoryboard: UIStoryboard {
         return UIStoryboard(name: "LoginView", bundle: Bundle.main)
     }
 }
 
 extension LoginRouter: LoginRouterProtocol{
+    func closeLogin(view: LoginViewController) {
+        let newListView = LoginRouter.createModule()
+        if let newView = view as? UIViewController{
+            
+            DispatchQueue.main.async {
+                newView.navigationController?.pushViewController(newListView, animated: true)
+            }
+        }
+    }
+    
     func goToListBeer(view: LoginViewControllerProtocol) {
         let newListView = BeerListRouter.createModule()
         if let newView = view as? UIViewController{
@@ -43,7 +53,7 @@ extension LoginRouter: LoginRouterProtocol{
                 newView.navigationController?.pushViewController(newListView, animated: true)
             }
         }
-
+        
     }
 }
 
